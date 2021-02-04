@@ -12,7 +12,7 @@ export const request = (url, options) => {
 };
 
 export const getPekemonExtendedInfo = async(id) => {
-  const extendedInfoServerObj = await request(`http://pokeapi.co/api/v2/pokemon/${id}`);
+  const extendedInfoServerObj = await request(`https://pokeapi.co/api/v2/pokemon/${id}`);
 
   const pekemonTypeFromServer = extendedInfoServerObj.types.map(item => item.type.name);
 
