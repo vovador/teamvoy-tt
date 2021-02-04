@@ -1,0 +1,151 @@
+@import "./pekemon-type-colors.scss";
+
+$space-between-cards: 20px;
+$space-between-cat-rows: 40px;
+$card-width: 107px;
+
+*{
+  box-sizing: border-box;
+}
+
+h2, h3 {
+  margin: 0;
+  padding: 0;
+}
+
+.page-title {
+  width: 376px;
+  height: 52px;
+  margin: 0 auto;
+
+  border: 1px solid black;
+
+  font-size: 27px;
+  text-align: center;
+  line-height: 50px;
+}
+
+.main-content{
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+
+}
+
+.initial-mark-up-container {
+  width: 100%;
+}
+
+.cards-gallery {
+  width: 60%;
+  display: grid;
+  justify-content: start;
+  grid-column-gap: $space-between-cards;
+  grid-row-gap: $space-between-cat-rows ;
+  grid-template-columns: repeat(3,$card-width);
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    cursor: pointer;
+
+    width: 107px;
+    height: 162px;
+    border: 1px solid black;
+
+    &-picture-container {
+      width: fit-content;
+      margin: 10px 10px 0 10px;
+    }
+
+    &-picture{
+      width: 84px;
+      height: auto;
+    }
+
+    &-title {
+      margin-bottom: 4px;
+
+      font-size: 10px;
+      text-transform: capitalize;
+    }
+
+    &-types {
+      width: 95%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &-type {
+      width: 48px;
+      height: 18px;
+
+      font-size: 10px;
+      line-height: 18px;;
+      text-transform: capitalize;
+      text-align: center;
+
+      border-radius: 5%;
+      box-shadow: 9px -16px 36px -32px #a25792;
+
+      &:not(:last-child) {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+
+.extended-info-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: sticky;
+  height: 385px;
+  width: 180px;
+  top: 100px;
+
+  padding: 10px 10px 15px 10px;
+
+  border: 1px solid black;
+
+  &__title {
+    font-size: 15px;
+    text-align: center;
+    text-transform: capitalize;
+  }
+
+  &__picture {
+    width: 150px;
+    height: auto;
+  }
+
+  &__stats {
+    width: 100%;
+    font-size: 10px;
+    border-collapse: collapse;
+    border: 1px solid black;
+  }
+
+  &__property-name {
+    width: 75%;
+    height: 20px;
+    border: 1px solid black;
+  }
+
+  &__property-value {
+    @extend .extended-info-card__property-name;
+    width: 25%;
+  }
+}
+
+.loading-button {
+  width: calc(#{$card-width} * 3 + #{$space-between-cards} * 2);
+  margin-top: 15px;
+
+  background-color: #008cff;
+  color: #f2f9ff;
+  font-weight: 600;
+}
