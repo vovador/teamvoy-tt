@@ -2,13 +2,12 @@ import React from 'react';
 
 export function ExtendedInfoCard({ extendedPekInfo }) {
 
-  console.log(extendedPekInfo.pekemonType);
-
   return (
     <div className="extended-info-card">
       <img src={extendedPekInfo.picture} alt='jg' className="extended-info-card__picture" />
       <h2 className="extended-info-card__title">{extendedPekInfo.name}{` #`}{`${extendedPekInfo.id}`.padStart(3, '0')}</h2>
       <table className="extended-info-card__stats">
+        <tbody>
         <tr>
           <td className="extended-info-card__property-name">Type</td>
           <td className="extended-info-card__property-value">{extendedPekInfo.pekemonType.join(' ')}</td>
@@ -45,6 +44,7 @@ export function ExtendedInfoCard({ extendedPekInfo }) {
           <td className="extended-info-card__property-name">Total moves</td>
           <td className="extended-info-card__property-value">{extendedPekInfo.totalMoves}</td>
         </tr>
+        </tbody>
       </table>
     </div>
   );

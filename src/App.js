@@ -22,7 +22,6 @@ function App() {
     setTypeCriterion('all');
     getMarkUpInfo(link)
     .then(result => {
-      console.log(result);
       setFurtherLoadingLink(result.next);
       setPekemons(current => [...current, ...result.pekemonCardInfo]);
       switchLoading(false);
@@ -47,20 +46,17 @@ function App() {
   }
 
   useEffect(() => {
-    updateLoadedDate('http://pokeapi.co/api/v2/pokemon/?limit=12');
+    updateLoadedDate('https://pokeapi.co/api/v2/pokemon/?limit=12');
     getPekemonTypes().then((gotten) => {
-      console.log('here', gotten);
       setPekemonTypesList(gotten);
     })
   },[])
 
   useEffect(() => {
-    console.log('done');
     setVisiblePekemons(pekemons);
   }, [ pekemons]);
 
   useEffect(() => {
-    console.log('well-done');
     buttonRef.current.scrollIntoView({
       behavior: "smooth"
     });
