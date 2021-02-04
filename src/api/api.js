@@ -35,7 +35,7 @@ export const getPekemonExtendedInfo = async(id) => {
 } 
 
 export const getMarkUpInfo = async(url) => {
-  await wait(500);
+  await wait(200);
   const pekemonNames = await request(url).then((gotten) => gotten.results.map((pekemon) => pekemon.name));
   const linksToExtandedInfo = await request(url).then((gotten) => gotten.results.map((pekemon) => pekemon.url) );
   const typesofPekemons = (await getData(linksToExtandedInfo)).map(item => item.types.map(item => item.type.name));
